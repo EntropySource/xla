@@ -1,4 +1,5 @@
 import args_parse
+import sys
 
 SUPPORTED_MODELS = [
     'alexnet', 'densenet121', 'densenet161', 'densenet169', 'densenet201',
