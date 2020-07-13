@@ -245,7 +245,7 @@ class DistributedExecutor(object):
     # Only for master
     if client_worker == self._cluster.get_client_master():
       xrt_server_config = [
-          'c_tpu_worker;{worker_idx};{worker_ip}:{worker_port}'.format(
+          'tpu_worker;{worker_idx};{worker_ip}:{worker_port}'.format(
               worker_idx=idx,
               worker_ip=service_worker.get_internal_ip(),
               worker_port=service_worker.get_port()) for idx, service_worker in
@@ -458,7 +458,7 @@ class DistributedExecutor(object):
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(
-      description='PyTorch on TPU distrubuted training launcher.',
+      description='PyTorch on TPU distributed training launcher.',
       epilog=('Usage example: python -m'
               ' torch_xla.distributed.xla_dist --tpu=[TPU_NAME]'
               ' --conda-env torch-xla-nightly -- python train.py'))
